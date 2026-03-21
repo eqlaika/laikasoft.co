@@ -1,0 +1,138 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  showNav?: boolean;
+}
+
+const { title, description = "Software utilities for EverQuest", showNav = true } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    {showNav && (
+      <nav>
+        <a href="/" class="logo">Laikasoft</a>
+        <a href="/stonemite">Stonemite</a>
+      </nav>
+    )}
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Laikasoft</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #0a0a12;
+    --surface: #12121e;
+    --border: #1e1e30;
+    --text: #c8c8d4;
+    --text-muted: #6a6a80;
+    --accent: #7b8cde;
+    --accent-dim: #4a5599;
+    --font-mono: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+    --font-sans: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --max-width: 640px;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<style>
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .logo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    color: var(--text);
+  }
+
+  .logo:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  nav a:not(.logo) {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  nav a:not(.logo):hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  main {
+    flex: 1;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  footer {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+  }
+
+  footer p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>

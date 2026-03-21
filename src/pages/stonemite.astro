@@ -1,0 +1,51 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Stonemite — Laikasoft" description="Picture-in-picture windows for your EverQuest characters.">
+  <section class="hero">
+    <h1>Stonemite</h1>
+    <p class="tagline">Picture-in-picture windows for your EverQuest characters.</p>
+  </section>
+
+  <section class="about">
+    <p>
+      Stonemite displays your EverQuest characters in small, always-on-top pip
+      windows so you can keep an eye on your whole box crew without alt-tabbing.
+      HiDPI aware.
+    </p>
+  </section>
+
+  <a href="https://github.com/eqlaika/stonemite/releases/latest" class="download">Download &rarr;</a>
+</Base>
+
+<style>
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    color: var(--text-muted);
+  }
+
+  .about {
+    margin-bottom: 2rem;
+  }
+
+  .about p {
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .download {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+  }
+</style>

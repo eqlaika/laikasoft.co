@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Laikasoft" showNav={false}>
+  <h1>Laikasoft</h1>
+  <p class="tagline">Software utilities for EverQuest.</p>
+  <a href="/stonemite" class="link">Stonemite &rarr;</a>
+</Base>
+
+<style>
+  h1 {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .link {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+  }
+</style>
