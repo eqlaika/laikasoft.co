@@ -16,7 +16,10 @@ import Base from "../layouts/Base.astro";
     </p>
   </section>
 
-  <a href="https://github.com/eqlaika/stonemite/releases/latest" class="download">Download &rarr;</a>
+  <div class="links">
+    <a href="https://github.com/eqlaika/stonemite">GitHub &rarr;</a>
+    <a href="https://github.com/eqlaika/stonemite/releases/latest">Download &rarr;</a>
+  </div>
 </Base>
 
 <style>
@@ -44,7 +47,12 @@ import Base from "../layouts/Base.astro";
     line-height: 1.7;
   }
 
-  .download {
+  .links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .links a {
     font-family: var(--font-mono);
     font-size: 0.95rem;
   }
