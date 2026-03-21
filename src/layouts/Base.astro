@@ -20,7 +20,7 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     {showNav && (
       <nav>
         <a href="/" class="logo"><img src="/favicon.png" alt="" class="logo-icon" />Laikasoft</a>
-        <a href="/stonemite">Stonemite</a>
+        <a href="/stonemite" class="nav-link"><img src="/stonemite-small.png" alt="" class="nav-icon" />Stonemite</a>
       </nav>
     )}
     <main>
@@ -114,12 +114,20 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     text-decoration: none;
   }
 
-  nav a:not(.logo) {
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
     font-size: 0.85rem;
     color: var(--text-muted);
   }
 
-  nav a:not(.logo):hover {
+  .nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .nav-link:hover {
     color: var(--accent);
     text-decoration: none;
   }
