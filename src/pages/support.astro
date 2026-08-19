@@ -1,0 +1,152 @@
+---
+import Base from "../layouts/Base.astro";
+
+const directionContract = `THESIS: Support is a two-route decision, not a faux help centre or a grid of generic resources.
+OWN-WORLD: Laikasoft’s near-black field, cool grey type, muted indigo links, mono labels, and one-pixel dividers.
+STORY: Identify support for Stonemite and Stonemite for Stream Deck, choose private help or public issue tracking, then act.
+FIRST VIEWPORT: A compact Support heading and plain-language introduction lead directly into two full-width, divided support routes; email comes first.
+FORM: Compact support desk, first and only narrow structure; seed key: established-world/support-desk.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md`;
+---
+
+<Base
+  title="Support — Laikasoft"
+  description="Support for Stonemite and Stonemite for Stream Deck."
+  {directionContract}
+>
+  <header class="intro">
+    <h1>Support</h1>
+    <p>
+      Help with <a href="/stonemite">Stonemite</a> for Windows and Stonemite for Stream Deck.
+      Choose the route that best fits what you need.
+    </p>
+  </header>
+
+  <div class="routes">
+    <section class="route" aria-labelledby="email-heading">
+      <div class="route-copy">
+        <h2 id="email-heading">Email</h2>
+        <p>For setup questions, connection trouble, or anything that needs a direct conversation.</p>
+      </div>
+      <a class="route-action" href="mailto:laika@laikasoft.co">laika@laikasoft.co <span aria-hidden="true">&rarr;</span></a>
+    </section>
+
+    <section class="route" aria-labelledby="issues-heading">
+      <div class="route-copy">
+        <h2 id="issues-heading">GitHub issues</h2>
+        <p>For reproducible bugs and feature requests that are useful to track in public.</p>
+      </div>
+      <a class="route-action" href="https://github.com/eqlaika/stonemite/issues/new">Open a new issue <span aria-hidden="true">&rarr;</span></a>
+    </section>
+  </div>
+
+  <section class="issue-notes" aria-labelledby="include-heading">
+    <h2 id="include-heading">What to include</h2>
+    <p>
+      Tell us whether you are using Stonemite or Stonemite for Stream Deck, what you expected,
+      what happened instead, and the steps that reproduce it. Version details and exact error text
+      help us investigate more quickly.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    max-width: 36rem;
+    margin-bottom: 2.75rem;
+  }
+
+  h1 {
+    margin-bottom: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  .intro p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .routes {
+    border-top: 1px solid var(--border);
+  }
+
+  .route {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .route-copy {
+    max-width: 30rem;
+  }
+
+  h2 {
+    margin-bottom: 0.35rem;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .route p,
+  .issue-notes p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .route-action {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .route-action span {
+    display: inline-block;
+    transition: transform 160ms ease-out;
+  }
+
+  .route-action:hover span {
+    transform: translateX(0.2rem);
+  }
+
+  .issue-notes {
+    max-width: 34rem;
+    margin-top: 2.75rem;
+  }
+
+  @media (max-width: 540px) {
+    .intro {
+      margin-bottom: 2.25rem;
+    }
+
+    .route {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      padding: 1.35rem 0;
+    }
+
+    .route-action {
+      white-space: normal;
+    }
+
+    .issue-notes {
+      margin-top: 2.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route-action span {
+      transition: none;
+    }
+  }
+</style>

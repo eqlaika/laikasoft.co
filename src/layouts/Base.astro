@@ -3,9 +3,17 @@ interface Props {
   title: string;
   description?: string;
   showNav?: boolean;
+  directionContract?: string;
 }
 
-const { title, description = "Software utilities for EverQuest", showNav = true } = Astro.props;
+const {
+  title,
+  description = "Software utilities for EverQuest",
+  showNav = true,
+  directionContract,
+} = Astro.props;
+
+const path = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -17,17 +25,23 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     <title>{title}</title>
   </head>
   <body>
+    {directionContract && <Fragment set:html={`<!--\n${directionContract}\n-->`} />}
     {showNav && (
-      <nav>
-        <a href="/" class="logo"><img src="/favicon.png" alt="" class="logo-icon" />Laikasoft</a>
-        <a href="/stonemite" class="nav-link"><img src="/stonemite-small.png" alt="" class="nav-icon" />Stonemite</a>
+      <nav aria-label="Main navigation">
+        <a href="/" class="logo" aria-current={path === "/" ? "page" : undefined}>
+          <img src="/favicon.png" alt="" class="logo-icon" />Laikasoft
+        </a>
+        <a href="/stonemite" class="nav-link" aria-current={path === "/stonemite" ? "page" : undefined}>
+          <img src="/stonemite-small.png" alt="" class="nav-icon" />Stonemite
+        </a>
+        <a href="/support" class="nav-link" aria-current={path === "/support" ? "page" : undefined}>Support</a>
       </nav>
     )}
     <main>
       <slot />
     </main>
     <footer>
-      <p>&copy; {new Date().getFullYear()} Laikasoft &middot; <a href="mailto:laika@laikasoft.co">laika@laikasoft.co</a> &middot; in game /tell Xegony.Laika</p>
+      <p>&copy; {new Date().getFullYear()} Laikasoft &middot; <a href="/support">Support</a></p>
     </footer>
   </body>
 </html>
@@ -46,7 +60,7 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     --surface: #12121e;
     --border: #1e1e30;
     --text: #c8c8d4;
-    --text-muted: #6a6a80;
+    --text-muted: #85859a;
     --accent: #7b8cde;
     --accent-dim: #4a5599;
     --font-mono: "SF Mono", "Cascadia Code", "Fira Code", monospace;
@@ -57,6 +71,7 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
   html {
     background: var(--bg);
     color: var(--text);
+    color-scheme: dark;
     font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.6;
@@ -68,13 +83,25 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     flex-direction: column;
   }
 
+  ::selection {
+    background: var(--accent-dim);
+    color: #fff;
+  }
+
   a {
     color: var(--accent);
     text-decoration: none;
+    text-underline-offset: 0.18em;
   }
 
   a:hover {
     text-decoration: underline;
+  }
+
+  a:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
   }
 </style>
 
@@ -127,7 +154,8 @@ const { title, description = "Software utilities for EverQuest", showNav = true 
     height: 16px;
   }
 
-  .nav-link:hover {
+  .nav-link:hover,
+  .nav-link[aria-current="page"] {
     color: var(--accent);
     text-decoration: none;
   }

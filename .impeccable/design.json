@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-19T17:22:00Z",
+  "title": "Design System: Laikasoft",
+  "extensions": {
+    "typographyMeta": {
+      "display": {
+        "displayName": "Mono display",
+        "purpose": "Page titles and Laikasoft identity."
+      },
+      "body": {
+        "displayName": "System body",
+        "purpose": "Explanations and support guidance."
+      },
+      "label": {
+        "displayName": "Mono action",
+        "purpose": "Direct actions and compact navigation."
+      }
+    },
+    "motion": [
+      {
+        "name": "route-arrow",
+        "value": "transform 160ms ease-out",
+        "purpose": "Moves a support route arrow 0.2rem on hover; removed for reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "support-stack",
+        "value": "540px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Text link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "The standard inline action and destination treatment.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Open destination →</a>",
+      "css": ".ds-text-link { color: var(--accent, #7b8cde); font: 400 1rem/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: none; text-underline-offset: 0.18em; } .ds-text-link:hover { text-decoration: underline; } .ds-text-link:focus-visible { border-radius: 2px; outline: 2px solid var(--accent, #7b8cde); outline-offset: 4px; }"
+    },
+    {
+      "name": "Site navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Compact product and support wayfinding inside the shared measure.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Preview navigation\"><a class=\"ds-nav-logo\" href=\"#\">Laikasoft</a><a class=\"ds-nav-link\" href=\"#\">Stonemite</a><a class=\"ds-nav-link\" aria-current=\"page\" href=\"#\">Support</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 1.5rem; width: min(100%, 640px); padding: 1.25rem 1.5rem; background: #0a0a12; } .ds-nav a { text-decoration: none; } .ds-nav-logo { margin-right: auto; color: #c8c8d4; font: 600 0.9rem/1.6 'SF Mono', 'Cascadia Code', monospace; } .ds-nav-link { color: #85859a; font: 400 0.85rem/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-nav-link:hover, .ds-nav-link[aria-current='page'] { color: #7b8cde; } .ds-nav a:focus-visible { border-radius: 2px; outline: 2px solid #7b8cde; outline-offset: 4px; }"
+    },
+    {
+      "name": "Support route",
+      "kind": "custom",
+      "refersTo": "support-route",
+      "description": "A divided choice row that pairs plain-language guidance with one direct action.",
+      "html": "<section class=\"ds-support-route\"><div><h2>Email</h2><p>For questions that need a direct conversation.</p></div><a href=\"#\">laika@laikasoft.co <span aria-hidden=\"true\">→</span></a></section>",
+      "css": ".ds-support-route { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #1e1e30; border-bottom: 1px solid #1e1e30; background: #0a0a12; color: #c8c8d4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-support-route h2 { margin: 0 0 0.35rem; font-size: 1rem; line-height: 1.35; } .ds-support-route p { margin: 0; color: #85859a; font-size: 0.9rem; line-height: 1.65; } .ds-support-route a { color: #7b8cde; font: 500 0.85rem/1.6 'SF Mono', 'Cascadia Code', monospace; text-decoration: none; } .ds-support-route a:hover span { display: inline-block; transform: translateX(0.2rem); transition: transform 160ms ease-out; } .ds-support-route a:focus-visible { border-radius: 2px; outline: 2px solid #7b8cde; outline-offset: 4px; } @media (max-width: 540px) { .ds-support-route { grid-template-columns: 1fr; gap: 0.85rem; padding: 1.35rem 0; } } @media (prefers-reduced-motion: reduce) { .ds-support-route a:hover span { transition: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The quiet utility index",
+    "overview": "Laikasoft is a compact technical directory rather than a marketing stage. One narrow column, spare copy, and high-confidence text links make each page feel direct and maintained. The dark field supports late-night game and desktop use without adding fantasy decoration or dashboard chrome. The system earns hierarchy through type register, spacing, and one-pixel divisions. Product art appears only when it carries identity; support and navigation remain typographic.",
+    "keyCharacteristics": [
+      "A near-black, single-column canvas with no ornamental panels.",
+      "Cool grey text and one muted indigo action color.",
+      "Monospace for product identity and actions; system sans for explanation.",
+      "Short pages, plain language, and visible authoritative links."
+    ],
+    "rules": [
+      {
+        "name": "The Action Color Rule",
+        "body": "Link indigo means an element can be followed or focused. Do not scatter it onto decorative labels.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Register Rule",
+        "body": "Monospace names the place or the action; system sans explains it.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Column Rule",
+        "body": "Add hierarchy inside the shared measure before considering a second region or sidebar.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do keep pages concise enough that the next useful action is visible quickly.",
+      "Do use semantic headings, descriptive links, aria-current, and visible keyboard focus.",
+      "Do use product artwork only for real product identity.",
+      "Do divide parallel choices with hairlines rather than wrapping each one in a card."
+    ],
+    "donts": [
+      "Don't add fantasy-game ornament, neon glow, glass, or decorative gradients.",
+      "Don't turn short support content into a dashboard, card grid, or simulated help centre.",
+      "Don't use muted text below accessible contrast on the night canvas.",
+      "Don't promise support channels, response times, or product claims that are not documented in PRODUCT.md."
+    ]
+  }
+}
